@@ -1,4 +1,4 @@
 from django.shortcuts import render
-def home(request):
-    return render(request,'landingpage.html')
+def landingpage(request):
+    return render(request,'teacherinfo/landingpage.html')
 # Create your views here.

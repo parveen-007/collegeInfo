@@ -16,9 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from teacherinfo.views import home
+from teacherinfo.views import landingpage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/',home,name='name'),
+    path('landingpage/',landingpage,name='landingpage'),
 ]
