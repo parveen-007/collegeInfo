@@ -20,5 +20,5 @@ from teacherinfo.views import landingpage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('landingpage/',landingpage,name='landingpage'),
+    path('',landingpage,name='landingpage'),
 ]
