@@ -11,80 +11,108 @@
         body {
             margin: 0;
             font-family: "Poppins", sans-serif;
-            background: linear-gradient(135deg, #2E3192, #1BFFFF);
             background-image: url("{% static 'images/vaagdevi.jpg' %}");
             background-size: cover;
             background-position: center;
             height: 100vh;
+            overflow-x: hidden;
         }
 
         /* NAVBAR */
         .navbar {
             width: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 100;
+            z-index: 999;
+            box-sizing: border-box;
         }
 
+        /* LEFT SIDE */
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
+            flex-shrink: 0;  /* Prevents shrinking */
         }
 
         .nav-left img {
-            height: 50px;
-            width: auto;
-            border-radius: 5px;
+            height: 45px;
         }
 
         .nav-left h2 {
             margin: 0;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
             color: #2E3192;
+            white-space: nowrap;
+        }
+
+        /* RIGHT SIDE */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: nowrap;
         }
 
         .nav-right a {
-            margin-left: 25px;
             text-decoration: none;
-            color: #2E3192;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
-            transition: 0.3s;
+            color: #2E3192;
+            white-space: nowrap;
         }
 
-        .nav-right a:hover {
-            color: #1BFFFF;
+        /* BUTTONS */
+        .btn {
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            white-space: nowrap;
         }
 
-        /* MAIN CONTENT */
+        .register-btn {
+            background-color: #2E3192;
+            color: white !important;
+        }
+
+        .login-btn {
+            background-color: #1BFFFF;
+            color: #2E3192 !important;
+        }
+
+        /* MAIN CENTER CONTENT */
         .main {
-            margin-top: 120px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin-top: 180px;
+            text-align: center;
         }
 
-        .main img {
-            width: 55%;
-            max-width: 600px;
-            border-radius: 15px;
-            box-shadow: 0px 6px 20px rgba(0,0,0,0.25);
-            animation: fadeIn 1s ease-in-out;
+        .main h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0px 4px 12px rgba(0,0,0,0.7);
         }
 
-        /* Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* ⭐ RESPONSIVE FIX (MOST IMPORTANT) */
+        @media (max-width: 1100px) {
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding-bottom: 20px;
+            }
+            .nav-right {
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -94,19 +122,19 @@
     <!-- NAVBAR -->
     <div class="navbar">
         <div class="nav-left">
-            <img src="{% static 'images/vaag logo.jpg' %}"alt="College Logo">
+            <img src="{% static 'images/vaag logo.jpg' %}" alt="College Logo">
             <h2>Vaagdevi College of Engineering</h2>
         </div>
 
         <div class="nav-right">
             <a href="/">Home</a>
             <a href="/about">About</a>
-            <a href="/teacher_register">Teacher Register</a>
-            <a href="/teacher_login">Login</a>
+            <a href="/teacher_register" class="btn register-btn">Register</a>
+            <a href="{% url 'login'%}" class="btn login-btn">Login</a>
         </div>
     </div>
 
-    <!-- MAIN -->
     
+
 </body>
 </html>

@@ -16,18 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-<<<<<<< HEAD
-from teacherinfo.views import landingpage
+from teacherinfo.views import landingpage,login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',landingpage,name='landingpage'),
-=======
-from teacherinfo.views import home, login
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('home/',home,name='name'),
     path('login/',login,name='login'),
->>>>>>> origin/login
 ]
+# from teacherinfo.views import home, login
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('home/',home,name='name'),
+#     path('login/',login,name='login'),
+# >>>>>>> origin/login
+
